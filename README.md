@@ -2,20 +2,6 @@
 
 A Spring Boot application demonstrating the power of JPA Specification API for building dynamic, type-safe database queries using a Bank Account management system.
 
-## 📋 Table of Contents
-
-- [Overview](#overview)
-- [Features](#features)
-- [Prerequisites](#prerequisites)
-- [Getting Started](#getting-started)
-- [Project Structure](#project-structure)
-- [JPA Specification Explained](#jpa-specification-explained)
-- [API Endpoints](#api-endpoints)
-- [Usage Examples](#usage-examples)
-- [Database Schema](#database-schema)
-- [Configuration](#configuration)
-- [Contributing](#contributing)
-
 ## 🎯 Overview
 
 This project showcases how to implement **JPA Specification** to create flexible, dynamic database queries that adapt to user search criteria without the need for multiple repository methods. Instead of creating dozens of query methods for different filter combinations, we use a single specification-based approach.
