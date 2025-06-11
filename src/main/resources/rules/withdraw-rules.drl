@@ -1,0 +1,30 @@
+package com.rules
+
+import com.customers.queries.entity.AccountEntity;
+import com.customers.queries.service.local_account.WithdrawContext;
+import com.sixbank.accountlibrary.enums.AccountStatus;
+
+
+rule "Block withdrawal if account is INACTIVE"
+    when
+        $ctx : WithdrawContext(account.status != AccountStatus.ACTIVE)
+    then
+        $ctx.setRejected(true);
+        $ctx.setReason("Account is inactive");
+end
+
+rule "Block if withdrawal amount exceeds balance"
+    when
+        $ctx : WithdrawContext(account.balance < amount)
+    then
+        $ctx.setRejected(true);
+        $ctx.setReason("Insufficient balance");
+end
+
+rule "Block if amount exceeds 10,000"
+    when
+        $ctx : WithdrawContext(amount > 10000.0)
+    then
+        $ctx.setRejected(true);
+        $ctx.setReason("Withdrawal exceeds limit");
+end
